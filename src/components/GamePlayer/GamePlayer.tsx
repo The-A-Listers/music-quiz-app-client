@@ -4,6 +4,7 @@ import TrackCard from "./parts/TrackCard";
 import { useNavigate } from 'react-router';
 import { useLocation } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
+import { useRequireUserProfile } from '../router/protectedRoute';
 
 const GamePlayer: React.FC = () => {
     const MAX_GAME_TIME = 90000;
@@ -15,7 +16,6 @@ const GamePlayer: React.FC = () => {
     const [indexOfTrackPlaying, setTrackId] = useState(0);
     const [correctNames,] = useState<string[]>([...gameResults.answers]);
     const uuid = trackNames.map(() => uuidv4());
-
 
     console.log("SCREEN: GamePlayer");
 
