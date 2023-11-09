@@ -271,6 +271,37 @@ button {
   border-radius: 20px;
 }
 
+.welcomeInstructions {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 700px;
+  border: solid;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+.welcomeInstructions h1 {
+  margin: 0px;
+
+}
+
+
+.welcomeInstructions ul {
+  padding-left: 8px;
+}
+
+
+.welcomeInstructions li {
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 0.25em;
+  text-align: left;
+  list-style: square;
+}
+
 .welcomeHighscoreContainer {
   display: flex;
   padding: 10px;

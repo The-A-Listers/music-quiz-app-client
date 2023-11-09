@@ -67,7 +67,7 @@ const GameResults: React.FC = () => {
             </tbody>
         </table>
         <audio loop autoPlay={true} controls src={playURL} ></audio>
-        <div className="resultsGameScore"><div>LAST GAME:</div><div>Score: {userScore}</div><div>TimeTaken: {userTimeTaken / 1000.0}s</div><div>HighScore Ranking:{userPosition}</div></div>
+        <div className="resultsGameScore"><div>LAST GAME:</div><div>Score: {userScore}</div><div>TimeTaken: {(userTimeTaken / 1000.0).toFixed(3)} s</div><div>HighScore Ranking:{userPosition}</div></div>
 
         <button onClick={() => navigate("/welcome")}>Finish</button>
 
