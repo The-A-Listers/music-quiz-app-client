@@ -5,7 +5,7 @@ export interface GetHighScoreResponseDTO {
 }
 
 const getHighScore = async (): Promise<GetHighScoreResponseDTO[]> => {
-    const apiUrl = "http://localhost:8080/api/v1/musicquiz/highscores?limit=20";
+    const apiUrl = "http://localhost:8080/api/v1/musicquiz/highscores?limit=10";
 
 
     const response = await fetch(apiUrl, {
