@@ -1,28 +1,13 @@
 import { useContext } from 'react';
 import { UserProfileContext } from "../userProfile/useUserProfile";
-// import { Navigate } from 'react-router';
-import { Navigate, useNavigate } from 'react-router-dom';
-import Home from '../home/Home';
+import { Navigate } from 'react-router-dom';
 
 interface ProtectedRoute {
     children?: React.ReactNode;
 }
 
-export const useRequireUserProfile = () => {
-    const { userProfile } = useContext(UserProfileContext);
-    const navigate = useNavigate();
-    const isUserProfileContextAvailable = userProfile !== null && userProfile.id !== "";
-
-    console.log({ userProfile });
-
-    if (!isUserProfileContextAvailable) {
-
-    }
-}
-
 const ProtectedRoute: React.FC<ProtectedRoute> = ({ children }) => {
     const { userProfile } = useContext(UserProfileContext);
-    const navigate = useNavigate();
     const isUserProfileContextAvailable = userProfile !== null && userProfile.id !== "";
 
     console.log({ userProfile });
@@ -30,7 +15,6 @@ const ProtectedRoute: React.FC<ProtectedRoute> = ({ children }) => {
     if (!isUserProfileContextAvailable) {
         return <Navigate to="/" />;
     }
-
 
     return children;
 };

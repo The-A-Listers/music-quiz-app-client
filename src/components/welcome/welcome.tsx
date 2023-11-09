@@ -97,7 +97,7 @@ const Welcome: React.FC = () => {
                         highScore && highScore
                             .sort((a, b) => a.score == b.score ? a.time - b.time : b.score - a.score)
                             .map(({ userName: username, score, time }, index) => <tr key={userHighScoreUUID[index]}>
-                                <td>{index}</td>
+                                <td>{index + 1}</td>
                                 <td>{username}</td>
                                 <td>{score}</td>
                                 <td>{time / 1000.0}</td>
