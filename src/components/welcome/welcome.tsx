@@ -38,7 +38,6 @@ const Welcome: React.FC = () => {
             setSongName([...randomisedArray]);
             setSongURL([...gameDTO.songURL]);
 
-
             if (songName && songURL) {
                 setDataLoaded(true);
             }
@@ -96,7 +95,7 @@ const Welcome: React.FC = () => {
                 <tbody>
                     {
                         highScore && highScore
-                            .sort((a, b) => a.score == b.score ? a.time - b.time : a.score - b.score)
+                            .sort((a, b) => a.score == b.score ? a.time - b.time : b.score - a.score)
                             .map(({ userName: username, score, time }, index) => <tr key={userHighScoreUUID[index]}>
                                 <td>{index}</td>
                                 <td>{username}</td>
@@ -108,16 +107,18 @@ const Welcome: React.FC = () => {
             </table>
 
             <table className="welcomeUserHighScoreTable">
-                <caption>Your Bests</caption>
+                <caption>Personal Bests</caption>
                 <thead>
                     <tr>
+                        <th>Ranking</th>
                         <th>Score</th>
                         <th>Time(s)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {userHighScore && userHighScore.sort((a, b) => a.score == b.score ? a.time - b.time : a.score - b.score)
-                        .map(({ score, time }) => <tr>
+                    {userHighScore && userHighScore.sort((a, b) => a.score == b.score ? a.time - b.time : b.score - a.score)
+                        .map(({ position, score, time }) => <tr>
+                            <td>{position}</td>
                             <td>{score}</td>
                             <td>{time / 1000.0}</td>
                         </tr>)
