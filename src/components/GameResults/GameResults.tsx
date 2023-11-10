@@ -57,17 +57,19 @@ const GameResults: React.FC = () => {
             </thead>
             <tbody>
                 {songName.map((trackName: string, index: number) => {
+                    const isPlaying = songURL[index] === playURL;
                     return <tr>
                         <td>{trackName}</td>
                         <td>{correctSongName[index]}</td>
-                        <td><button onClick={() => { setPlayURL(songURL[index]) }}>▶</button></td>
+                        <td><button onClick={() => { isPlaying ? setPlayURL("") : setPlayURL(songURL[index]) }}>{isPlaying ? "⏸" : "▶"}</button></td>
                         <td>{correctSongName[index] === trackName ? "✓" : "❌"}</td>
                     </tr>
                 })}
             </tbody>
         </table>
-        <audio loop autoPlay={true} controls src={playURL} ></audio>
-        <div className="resultsGameScore"><div>LAST GAME:</div><div>Score: {userScore}</div><div>TimeTaken: {(userTimeTaken / 1000.0).toFixed(3)} s</div><div>HighScore Ranking:{userPosition}</div></div>
+
+        <div className="resultsGameScore"><div>LAST GAME</div><div>Score: {userScore}</div><div>TimeTaken: {(userTimeTaken / 1000.0).toFixed(3)} s</div><div>HighScore Ranking:{userPosition}</div></div>
+        <audio loop autoPlay={true} src={playURL} ></audio>
 
         <button onClick={() => navigate("/welcome")}>Finish</button>
 

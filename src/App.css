@@ -2,12 +2,20 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
+}
+
+header h1 {
+    display: flex;
+    flex-direction: row;
+    width: auto;
 }
 
 header .userInfo {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 200px;
 }
 
 
@@ -18,12 +26,6 @@ header .userText {
     padding: 10px;
 }
 
-.header h1 {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-self: center;
-}
 
 .header-nav {
     align-self: left;
