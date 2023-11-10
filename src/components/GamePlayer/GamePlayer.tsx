@@ -16,7 +16,6 @@ const GamePlayer: React.FC = () => {
     const [correctNames,] = useState<string[]>([...gameResults.answers]);
     const uuid = trackNames.map(() => uuidv4());
 
-
     console.log("SCREEN: GamePlayer");
 
     const swapTrackNames = (draggedIndex: number, droppedIndex: number) => {

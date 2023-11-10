@@ -81,6 +81,7 @@ const Welcome: React.FC = () => {
     const transferState = { state: { trackNames: songName, mp3URLs: songURL, answers: correctName } };
     console.log({ transferState });
     return <div className="welcomeMain">
+        <div className="welcomeInstructions"><h1>How to Play</h1><ul><li>Click the&nbsp; <strong>Start Game</strong> button, below, to start a game. </li><li>Click the <strong>Play Track</strong> buttons to play each track, in turn</li><li>Drag the music names onto the correct playing tunes before time runs out!</li><li>Click the <strong>Done</strong> button to finish early.</li><li>Your score will be the number of tunes you guessed correctly, with time taken as a tie breaker.</li></ul></div>
         <div className="welcomeHighscoreContainer">
             <table className="welcomeHighScoreTable">
                 <caption>High Scores</caption>
@@ -97,7 +98,7 @@ const Welcome: React.FC = () => {
                         highScore && highScore
                             .sort((a, b) => a.score == b.score ? a.time - b.time : b.score - a.score)
                             .map(({ userName: username, score, time }, index) => <tr key={userHighScoreUUID[index]}>
-                                <td>{index}</td>
+                                <td>{index + 1}</td>
                                 <td>{username}</td>
                                 <td>{score}</td>
                                 <td>{time / 1000.0}</td>
