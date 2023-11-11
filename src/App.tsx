@@ -8,6 +8,7 @@ document.title = 'Tangled Tunes';
 
 function App() {
   const [userProfile, setUserProfile] = useState<UserProfile>(NULL_USER);
+
   return (
     <>
       <BrowserRouter>

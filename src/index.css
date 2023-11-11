@@ -13,8 +13,6 @@
   width: 100%;
 }
 
-
-
 @keyframes neonShimmerPlayer {
   from {
     border-color: chartreuse;
@@ -380,9 +378,42 @@ button {
   padding: 20px;
 }
 
+@keyframes gameOverGlow {
+  from {
+    text-shadow: 0 0 4px white, 0 0 8px white, 0 0 16px white, 0 0 32px white, 0 0 48px white
+  }
+
+  50% {
+    text-shadow: 0 0 1px white, 0 0 2px white, 0 0 4px white, 0 0 8px white, 0 0 12px white
+  }
+
+  to {
+    text-shadow: 0 0 4px white, 0 0 8px white, 0 0 16px white, 0 0 32px white, 0 0 48px white
+  }
+}
+
+
+.resultsGameOver {
+  color: white;
+  animation-name: gameOverGlow;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.resultsGameScore {
+  border-collapse: collapse;
+}
+
+.resultsGameScore th td {
+  border-width: 2px;
+  border-style: solid;
+  border-color: white;
+}
+
 .resultsTable {
-  padding: 0 20px;
-  margin: 20px;
+  padding: 10px;
+  margin: 10px;
   font-family: LEDFont;
   font-size: 30px;
   border: solid;

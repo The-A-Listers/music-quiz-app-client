@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 
 import postUserHighScore from "../../dto/postUserScoreDTO";
 import { UserProfileContext } from "../userProfile/useUserProfile";
+import { getNumberWithOrdinal } from "../../utillib/ordinal";
 
 const GameResults: React.FC = () => {
 
@@ -45,35 +46,39 @@ const GameResults: React.FC = () => {
 
     // console.log(correctSongNames, correctURLs);
 
-    return <><div className="resultsMain">
-        <table className="resultsTable">
-            <thead>
-                <tr>
-                    <th>Your guess</th>
-                    <th>The Correct Answer</th>
-                    <th>Play</th>
-                    <th>Mark</th>
-                </tr>
-            </thead>
-            <tbody>
-                {songName.map((trackName: string, index: number) => {
-                    const isPlaying = songURL[index] === playURL;
-                    return <tr>
-                        <td>{trackName}</td>
-                        <td>{correctSongName[index]}</td>
-                        <td><button onClick={() => { isPlaying ? setPlayURL("") : setPlayURL(songURL[index]) }}>{isPlaying ? "⏸" : "▶"}</button></td>
-                        <td>{correctSongName[index] === trackName ? "✓" : "❌"}</td>
+    return <>
+        <div className="resultsMain">
+
+            <div className="resultsGameScore"><div className="resultsGameOver">GAME OVER</div><div>Rank:{getNumberWithOrdinal(userPosition)}</div><div>Score:{userScore}</div><div>TimeTaken:{(userTimeTaken / 1000.0).toFixed(3)}</div></div>
+
+            <table className="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Your guess</th>
+                        <th>The Correct Answer</th>
+                        <th>Play</th>
+                        <th>Mark</th>
                     </tr>
-                })}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {songName.map((trackName: string, index: number) => {
+                        const isPlaying = songURL[index] === playURL;
+                        return <tr>
+                            <td>{trackName}</td>
+                            <td>{correctSongName[index]}</td>
+                            <td><button onClick={() => { isPlaying ? setPlayURL("") : setPlayURL(songURL[index]) }}>{isPlaying ? "⏸" : "▶"}</button></td>
+                            <td>{correctSongName[index] === trackName ? "✓" : "❌"}</td>
+                        </tr>
+                    })}
+                </tbody>
+            </table>
 
-        <div className="resultsGameScore"><div>LAST GAME</div><div>Score: {userScore}</div><div>TimeTaken: {(userTimeTaken / 1000.0).toFixed(3)} s</div><div>HighScore Ranking:{userPosition}</div></div>
-        <audio loop autoPlay={true} src={playURL} ></audio>
+            <audio loop autoPlay={true} src={playURL} ></audio>
 
-        <button onClick={() => navigate("/welcome")}>Finish</button>
+            <button onClick={() => navigate("/welcome")}>Finish</button>
 
-    </div ></>;
+        </div >
+    </>;
 
 }
 export default GameResults;

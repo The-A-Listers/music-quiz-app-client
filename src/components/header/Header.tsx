@@ -12,10 +12,8 @@ const Header: React.FC = () => {
         <div className='userInfo'>
             {userProfile?.picture && userProfile?.picture != "" && <img src={userProfile.picture} alt="user image" />}
             <div className="userText">
-                {/* {userProfile?.id && <h3>User Logged in</h3>} */}
                 {userProfile?.name && <div>Name:<br></br> {userProfile.name}</div>}
                 {userProfile?.email && <div>Email:<br /> {userProfile.email}</div>}
-                {/* {userProfile?.id && <div>ID: {userProfile.id}</div>} */}
             </div>
         </div>
     </header >;
