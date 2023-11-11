@@ -355,13 +355,13 @@ button {
 }
 
 .welcomeHighScoreTable>tbody tr:nth-child(odd) {
-  background-color: orchid;
-  color: purple;
+  color: lightgrey;
+  background-color: purple;
 }
 
 .welcomeHighScoreTable>tbody tr:nth-child(even) {
-  background-color: purple;
-  color: orchid;
+  color: lightgrey;
+  background-color: none;
 }
 
 
@@ -428,7 +428,7 @@ button {
   padding: 10px;
   margin: 10px;
   font-family: LEDFont;
-  font-size: 30px;
+  font-size: 26px;
   border: solid;
   border-radius: 50px;
   border-collapse: collapse;
@@ -436,17 +436,26 @@ button {
 
 .resultsTable th,
 .resultsTable td {
-  border-left: 2px solid;
-  border-right: 2px solid;
-  border-top: 2px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
   text-align: left;
   border-collapse: collapse;
+  margin: px;
+  padding: 2px;
   padding-left: 6px;
   padding-right: 6px;
-  margin: 4px;
-  padding: 4px;
+  font-family: Barlow;
 }
 
+.resultsTable>tbody tr:nth-child(even) {
+  background-color: none;
+  color: lightgray;
+}
+
+.resultsTable>tbody tr:nth-child(odd) {
+  background-color: purple;
+  color: lightgray;
+}
 
 
 .resultsGameScore {
@@ -472,7 +481,8 @@ button {
   padding: 10px;
 }
 
-
 .resultsMain>button {
-  font-size: 60px;
+  font-size: 20px;
+  padding: 20px;
+  color: white;
 }

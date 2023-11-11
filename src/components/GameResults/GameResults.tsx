@@ -75,7 +75,7 @@ const GameResults: React.FC = () => {
 
             <audio loop autoPlay={true} src={playURL} ></audio>
 
-            <button onClick={() => navigate("/welcome")}>Finish</button>
+            <button onClick={() => navigate("/welcome")}>Leave Game</button>
 
         </div >
     </>;
