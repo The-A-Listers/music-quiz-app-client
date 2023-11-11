@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 
 import postUserHighScore from "../../dto/postUserScoreDTO";
 import { UserProfileContext } from "../userProfile/useUserProfile";
-import { getNumberWithOrdinal } from "../../utillib/ordinal";
+import { getNumberWithOrdinal } from "../../lib/ordinal";
 
 const GameResults: React.FC = () => {
 

@@ -7,13 +7,17 @@ import { v4 as uuidv4 } from 'uuid';
 
 const GamePlayer: React.FC = () => {
     const MAX_GAME_TIME = 90000;
+    const [gameStartTime,] = useState<number>(new Date().getTime());
+    const [gameEndTime,] = useState<number>(gameStartTime + MAX_GAME_TIME);
+
     const gameResults = useLocation().state;
     const [mp3URLs,] = useState<string[]>([...gameResults.mp3URLs]);
     const [trackNames, setTrackNames] = useState<string[]>([...gameResults.trackNames]);
-    const [gameStartTime,] = useState<number>(new Date().getTime());
-    const navigate = useNavigate();
-    const [indexOfTrackPlaying, setTrackId] = useState(0);
     const [correctNames,] = useState<string[]>([...gameResults.answers]);
+
+    const navigate = useNavigate();
+
+    const [indexOfTrackPlaying, setTrackId] = useState(0);
     const uuid = trackNames.map(() => uuidv4());
 
     console.log("SCREEN: GamePlayer");
@@ -53,7 +57,7 @@ const GamePlayer: React.FC = () => {
         </fieldset>
         <fieldset className="lowerFieldSet">
             <legend>Game controls:</legend>
-            <CountDownTimer duration={MAX_GAME_TIME} endGame={endGame} />
+            <CountDownTimer endTime={gameEndTime} endGame={endGame} />
             {<audio loop className="tunePlayer" autoPlay={true} controls src={indexOfTrackPlaying === -1 ? "" : mp3URLs[indexOfTrackPlaying]} ></audio>}
             <button onClick={verifyEndGame}>DONE!</button>
         </fieldset>

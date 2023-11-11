@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
 
-const useSecondTimer = (duration: number) => {
-  const [endCountDownDate] = useState(new Date().getTime() + duration);
+const useSecondTimer = (endCountDownDate: number) => {
 
-  const [countdown, setCountdown] = useState(duration);
-
-
+  const [countdown, setCountdown] = useState(endCountDownDate - new Date().getTime());
 
   useEffect(() => {
 

@@ -295,7 +295,7 @@ button {
 .welcomeInstructions li {
   margin-left: 16px;
   margin-right: 16px;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.1em;
   text-align: left;
   list-style: square;
 }
@@ -320,33 +320,52 @@ button {
   align-content: center;
 }
 
-.welcomeHighScoreTable,
-.welcomeUserHighScoreTable {
-  padding: 0 20px;
-  margin: 20px;
+.welcomeHighScoreTable {
+  padding: 10px;
+  margin: 10px;
   font-family: LEDFont;
   font-size: 30px;
   border-color: white;
   border: solid;
-  border-radius: 50px;
   border-collapse: collapse;
+  text-align: right;
+
 }
 
 .welcomeHighScoreTable td,
-.welcomeUserHighScoreTable td,
-.welcomehighScoreTable th,
-.welcomeuserHighScoreTable th {
-  border-left: 2px solid;
-  border-right: 2px solid;
+.welcomeHighScoreTable th {
+  border-left-style: solid;
+  border-left: 1px;
+  border-right: 1px;
+  border-right-style: solid;
+  border-top: 0px;
+  border-bottom: 1px;
   text-align: right;
   align-content: right;
-  border-collapse: collapse;
   padding-left: 10px;
   margin-left: 10px;
   padding-right: 10px;
   margin-right: 10px;
-
+  border-collapse: collapse;
 }
+
+.welcomeHighScoreTable th {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.welcomeHighScoreTable>tbody tr:nth-child(odd) {
+  background-color: orchid;
+  color: purple;
+}
+
+.welcomeHighScoreTable>tbody tr:nth-child(even) {
+  background-color: purple;
+  color: orchid;
+}
+
+
+
 
 .welcomeMain {
   width: 100%;
@@ -405,12 +424,6 @@ button {
   border-collapse: collapse;
 }
 
-.resultsGameScore th td {
-  border-width: 2px;
-  border-style: solid;
-  border-color: white;
-}
-
 .resultsTable {
   padding: 10px;
   margin: 10px;
@@ -433,6 +446,8 @@ button {
   margin: 4px;
   padding: 4px;
 }
+
+
 
 .resultsGameScore {
   display: flex;

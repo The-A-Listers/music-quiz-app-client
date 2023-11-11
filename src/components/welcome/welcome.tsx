@@ -97,8 +97,8 @@ const Welcome: React.FC = () => {
                     {
                         highScore && highScore
                             .sort((a, b) => a.score == b.score ? a.time - b.time : b.score - a.score)
-                            .map(({ userName: username, score, time }, index) => <tr key={userHighScoreUUID[index]}>
-                                <td>{index + 1}</td>
+                            .map(({ userName: username, score, time }, index, array: GetHighScoreResponseDTO[]) => <tr key={userHighScoreUUID[index]}>
+                                <td>{array.filter((hiscore) => hiscore.score > score || (hiscore.score === score && hiscore.time < time)).length + 1}</td>
                                 <td>{username}</td>
                                 <td>{score}</td>
                                 <td>{time / 1000.0}</td>
@@ -107,13 +107,13 @@ const Welcome: React.FC = () => {
                 </tbody>
             </table>
 
-            <table className="welcomeUserHighScoreTable">
+            <table className="welcomeHighScoreTable">
                 <caption>Personal Bests</caption>
                 <thead>
                     <tr>
-                        <th>Ranking</th>
+                        <th>Rank</th>
                         <th>Score</th>
-                        <th>Time(s)</th>
+                        <th>Time</th>
                     </tr>
                 </thead>
                 <tbody>
