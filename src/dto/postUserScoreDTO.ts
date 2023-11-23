@@ -15,6 +15,7 @@ const postUserHighScore = async (request: PostUserGameRequestDTO): Promise<PostU
     const response = await fetch(apiUrl, {
         method: 'POST',
         mode: 'cors',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
           },

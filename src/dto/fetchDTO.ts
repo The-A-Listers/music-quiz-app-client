@@ -2,6 +2,7 @@ async function getDTO<T>(url: string) : Promise<T>  {
     const response = await fetch(url, {
         method: 'GET',
         mode: 'cors',
+        credentials: 'include',
         headers: {}
     });
 
